@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Character Lab | Build Unforgettable Characters</title>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,600;0,800;1,600&family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+    
+    <style>
+        /* --- DESIGN TOKENS & VARIABLES --- */
+        :root {
+            --dark-cinema: #0a0a0c;
+            --dark-overlay: rgba(10, 10, 12, 0.75);
+            --warm-neutral: #f4f1ea;
+            --accent-coral: #ff6b6b;
+            --accent-teal: #20c997;
+            --accent-mustard: #fcc419;
+            --accent-purple: #845ef7;
+            --text-light: #ffffff;
+            --text-dark: #212529;
+            --font-serif: 'Playfair Display', serif;
+            --font-sans: 'Inter', sans-serif;
+        }
+
+        /* --- GLOBAL RESETS --- */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: var(--font-sans);
+            color: var(--text-dark);
+            line-height: 1.6;
+            background-color: var(--warm-neutral);
+            overflow-x: hidden;
+        }
+        h1, h2, h3, h4 {
+            font-family: var(--font-serif);
+            line-height: 1.2;
+            margin-bottom: 1rem;
+        }
+        p {
+            margin-bottom: 1.5rem;
+            font-size: 1.125rem;
+        }
+        section {
+            padding: 5rem 2rem;
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        /* --- BUTTONS --- */
+        .btn {
+            display: inline-block;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            cursor: pointer;
+            border: none;
+            margin: 0.5rem;
+        }
+        .btn-primary {
+            background-color: var(--accent-coral);
+            color: var(--text-light);
+            box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4);
+        }
+        .btn-secondary {
+            background-color: var(--accent-teal);
+            color: var(--text-light);
+            box-shadow: 0 4px 15px rgba(32, 201, 151, 0.4);
+        }
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            position: relative;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: var(--text-light);
+            /* Placeholder for your cinematic image/video background */
+            background: linear-gradient(var(--dark-overlay), var(--dark-overlay)), url('https://images.unsplash.com/photo-1598899134739-24c46f58b8c0?auto=format&fit=crop&q=80&w=2000') center/cover no-repeat;
+            padding: 2rem;
+        }
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+        }
+        .kicker {
+            color: var(--accent-mustard);
+            font-weight: 800;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+            font-size: 0.875rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .hero h1 {
+            font-size: clamp(3rem, 5vw, 5rem);
+            margin-bottom: 1.5rem;
+        }
+        .hero p {
+            font-size: clamp(1.125rem, 2vw, 1.5rem);
+            font-weight: 400;
+            color: #ddd;
+            margin-bottom: 2rem;
+        }
+        .tag {
+            display: inline-block;
+            background: var(--accent-mustard);
+            color: var(--dark-cinema);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-weight: 800;
+            margin-bottom: 2rem;
+            transform: rotate(-2deg);
+        }
+
+        /* --- DIFFERENT SECTION --- */
+        .different {
+            background-color: var(--dark-cinema);
+            color: var(--text-light);
+            text-align: center;
+        }
+        .different h2 {
+            font-size: 3rem;
+            color: var(--accent-mustard);
+        }
+        .different-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+            text-align: left;
+        }
+        .diff-card {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 12px;
+            border-left: 4px solid var(--accent-teal);
+        }
+
+        /* --- VIDEO SECTION --- */
+        .video-section {
+            background-color: var(--accent-teal);
+            text-align: center;
+        }
+        .video-wrapper {
+            position: relative;
+            padding-bottom: 56.25%; /* 16:9 aspect ratio */
+            height: 0;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+            margin-top: 2rem;
+            background: var(--dark-cinema);
+        }
+        .video-wrapper iframe {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border: 0;
+        }
+
+        /* --- VISUAL GRID --- */
+        .visual-grid {
+            background-color: var(--warm-neutral);
+        }
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+            margin-top: 3rem;
+        }
+        .grid-item {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 16px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .grid-item:hover {
+            transform: translateY(-5px);
+        }
+        .grid-item h3 {
+            font-family: var(--font-sans);
+            font-weight: 800;
+            font-size: 1.25rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        /* Colorful accents for grid items */
+        .grid-item:nth-child(1) { border-top: 5px solid var(--accent-coral); }
+        .grid-item:nth-child(2) { border-top: 5px solid var(--accent-teal); }
+        .grid-item:nth-child(3) { border-top: 5px solid var(--accent-mustard); }
+        .grid-item:nth-child(4) { border-top: 5px solid var(--accent-purple); }
+        .grid-item:nth-child(5) { border-top: 5px solid var(--accent-coral); }
+        .grid-item:nth-child(6) { border-top: 5px solid var(--accent-teal); }
+
+        /* --- SCHEDULE & PRICING --- */
+        .logistics {
+            background-color: var(--dark-cinema);
+            color: var(--text-light);
+        }
+        .flex-row {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        .box {
+            flex: 1;
+            min-width: 300px;
+            background: rgba(255,255,255,0.05);
+            padding: 3rem 2rem;
+            border-radius: 16px;
+            text-align: center;
+        }
+        .box.highlight {
+            background: var(--accent-purple);
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(132, 94, 247, 0.4);
+        }
+        .price {
+            font-size: 3rem;
+            font-family: var(--font-serif);
+            font-weight: bold;
+            margin: 1rem 0;
+            color: var(--accent-mustard);
+        }
+
+        /* --- SYLLABUS ACCORDION --- */
+        .syllabus {
+            background-color: var(--warm-neutral);
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        details {
+            background: #fff;
+            margin-bottom: 1rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
+            overflow: hidden;
+        }
+        summary {
+            padding: 1.5rem;
+            font-weight: 600;
+            font-size: 1.125rem;
+            cursor: pointer;
+            list-style: none;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        summary::-webkit-details-marker {
+            display: none;
+        }
+        summary:after {
+            content: '+';
+            font-size: 1.5rem;
+            color: var(--accent-coral);
+        }
+        details[open] summary:after {
+            content: '-';
+        }
+        .details-content {
+            padding: 0 1.5rem 1.5rem;
+            color: #555;
+        }
+
+        /* --- TIKTOK STRIP --- */
+        .tiktok-strip {
+            background: #000;
+            padding: 3rem 0;
+            overflow-x: auto;
+            white-space: nowrap;
+        }
+        .tiktok-container {
+            display: inline-flex;
+            gap: 1.5rem;
+            padding: 0 2rem;
+        }
+        .tiktok-vid {
+            width: 250px;
+            height: 440px;
+            background: #222;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #666;
+            font-family: var(--font-sans);
+        }
+
+        /* --- CTA --- */
+        .cta {
+            background: var(--accent-coral);
+            color: var(--text-light);
+            text-align: center;
+        }
+        .cta h2 {
+            font-size: 3.5rem;
+        }
+
+        @media(max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .box.highlight { transform: scale(1); }
+            section { padding: 3rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="hero">
+        <div class="hero-content">
+            <span class="kicker">Welcome to the Laboratory</span>
+            <h1>Build unforgettable characters.<br>Not just performances.</h1>
+            <p>A 10-week signature creative incubator for young actors ready to stretch their imagination, dive into emotional depth, and make bold storytelling choices.</p>
+            <div class="tag">✨ Early Bird Enrollment Now Open</div>
+            <div>
+                <a href="#enroll" class="btn btn-primary">🎟️ Enroll Teen Class</a>
+                <a href="#enroll" class="btn btn-secondary">🎟️ Enroll Tween Class</a>
+            </div>
+        </div>
+    </header>
+
+    <section class="different">
+        <div class="container">
+            <h2>This isn’t scene study.<br>This is character creation.</h2>
+            <p style="max-width: 700px; margin: 0 auto; color: #ccc;">Most acting classes focus on memorizing lines and “getting it right.” Character Lab is about building an identity from the ground up.</p>
+            
+            <div class="different-grid">
+                <div class="diff-card">
+                    <h3>Stretch Imagination</h3>
+                    <p>Take massive, safe creative risks without the pressure of "perfection."</p>
+                </div>
+                <div class="diff-card" style="border-color: var(--accent-coral);">
+                    <h3>Explore Emotion</h3>
+                    <p>Discover wildly specific physical, vocal, and emotional choices.</p>
+                </div>
+                <div class="diff-card" style="border-color: var(--accent-mustard);">
+                    <h3>Become Magnetic</h3>
+                    <p>Develop the artistic instincts that carry directly into auditions and bookings.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="video-section">
+        <div class="container" style="max-width: 800px;">
+            <h2 style="color: var(--dark-cinema);">A Message from Corey</h2>
+            <p style="color: var(--dark-cinema); font-weight: 600;">"We stop worrying about being correct, and start focusing on being interesting."</p>
+            
+            <div class="video-wrapper">
+                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+            </div>
+        </div>
+    </section>
+
+    <section class="visual-grid">
+        <div class="container">
+            <h2 style="text-align: center; font-size: 2.5rem;">What We Explore</h2>
+            
+            <div class="grid-container">
+                <div class="grid-item">
+                    <h3>🧠 Character DNA</h3>
+                    <p>Building the psychological blueprint of a person from scratch.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>🎭 Emotional Complexity</h3>
+                    <p>Peeling back the layers to find the "why" behind the words.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>🚶 Physical Transformation</h3>
+                    <p>Changing how we walk, sit, and take up space.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>🎤 Vocal Texture</h3>
+                    <p>Finding the rhythm, pitch, and unique breath of the character.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>📖 Backstory Creation</h3>
+                    <p>Inventing the memories the script doesn't tell you about.</p>
+                </div>
+                <div class="grid-item">
+                    <h3>⚡ Bold Risk-Taking</h3>
+                    <p>Making the choice that no one else in the waiting room will make.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="logistics" id="enroll">
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 3rem;">Schedule & Investment</h2>
+            
+            <div class="flex-row">
+                <div class="box">
+                    <h3 style="color: var(--accent-teal);">Teen Class (13+)</h3>
+                    <p>Wednesdays — 4:30pm PT<br>Begins May 20</p>
+                </div>
+                <div class="box">
+                    <h3 style="color: var(--accent-teal);">Tween Class (8–12)</h3>
+                    <p>Thursdays — 4:30pm PT<br>Begins May 21</p>
+                </div>
+            </div>
+
+            <div class="flex-row">
+                <div class="box highlight">
+                    <h3>🌟 Early Bird Tuition</h3>
+                    <p>Ends Soon!</p>
+                    <div class="price">$425</div>
+                    <p>Pay in full <em>or</em> 3 payments of $150</p>
+                    <button class="btn" style="background: #fff; color: var(--accent-purple);">Secure Early Bird</button>
+                </div>
+                <div class="box">
+                    <h3>Regular Tuition</h3>
+                    <br>
+                    <div class="price" style="color: #fff;">$549</div>
+                    <p>Pay in full <em>or</em> 3 payments of $190</p>
+                    <p style="font-size: 0.875rem; color: #aaa; margin-top: 1rem;">Small group training. Seats are strictly limited.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="syllabus">
+        <h2 style="text-align: center; margin-bottom: 2rem;">The 10-Week Evolution</h2>
+        
+        <details>
+            <summary>Week 1 — Character DNA</summary>
+            <div class="details-content">Extracting clues from the text to build the foundational identity of your character.</div>
+        </details>
+        <details>
+            <summary>Week 2 — Imagination Expansion</summary>
+            <div class="details-content">Breaking out of the box and leaving safe choices behind.</div>
+        </details>
+        <details>
+            <summary>Week 3 — Emotional Layers</summary>
+            <div class="details-content">Playing the subtext, not just the text. Understanding secondary emotions.</div>
+        </details>
+        <details>
+            <summary>Week 4 — Physical Character Work</summary>
+            <div class="details-content">The body language of a stranger. Changing your center of gravity.</div>
+        </details>
+        <details>
+            <summary>Week 5 — Vocal Rhythm + Texture</summary>
+            <div class="details-content">Finding the character's unique voice, pacing, and breath.</div>
+        </details>
+    </section>
+
+    <section class="tiktok-strip">
+        <h3 style="color: #fff; text-align: center; margin-bottom: 2rem; font-family: var(--font-sans);">Industry Inspiration</h3>
+        <div class="tiktok-container">
+            <div class="tiktok-vid">[ Vertical Video Embed 1 ]</div>
+            <div class="tiktok-vid">[ Vertical Video Embed 2 ]</div>
+            <div class="tiktok-vid">[ Vertical Video Embed 3 ]</div>
+            <div class="tiktok-vid">[ Vertical Video Embed 4 ]</div>
+            <div class="tiktok-vid">[ Vertical Video Embed 5 ]</div>
+        </div>
+    </section>
+
+    <section class="cta">
+        <div class="container">
+            <h2>This is where actors become interesting.</h2>
+            <p style="font-size: 1.5rem; max-width: 600px; margin: 0 auto 2rem;">Stop trying to get it right. Start becoming unforgettable. Claim your spot before Early Bird closes.</p>
+            <a href="#enroll" class="btn btn-secondary" style="background: var(--dark-cinema);">🎟️ Enroll Teen Class</a>
+            <a href="#enroll" class="btn btn-secondary" style="background: var(--dark-cinema);">🎟️ Enroll Tween Class</a>
+        </div>
+    </section>
+
+</body>
+</html>
