@@ -247,44 +247,54 @@
             color: var(--accent-mustard);
         }
 
-        /* --- SYLLABUS ACCORDION --- */
+        /* --- SYLLABUS GRID --- */
         .syllabus {
             background-color: var(--warm-neutral);
-            max-width: 800px;
-            margin: 0 auto;
         }
-        details {
+        .syllabus-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+        .syllabus-card {
             background: #fff;
-            margin-bottom: 1rem;
-            border-radius: 8px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.03);
-            overflow: hidden;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+            border-top: 4px solid var(--accent-coral);
+            transition: transform 0.3s ease;
         }
-        summary {
-            padding: 1.5rem;
-            font-weight: 600;
-            font-size: 1.125rem;
-            cursor: pointer;
-            list-style: none;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
+        .syllabus-card:hover {
+            transform: translateY(-5px);
         }
-        summary::-webkit-details-marker {
-            display: none;
+        .syllabus-card h3 {
+            font-family: var(--font-sans);
+            font-weight: 800;
+            font-size: 1.25rem;
+            margin-bottom: 0.5rem;
+            color: var(--dark-cinema);
         }
-        summary:after {
-            content: '+';
-            font-size: 1.5rem;
+        .syllabus-card .week-num {
+            font-size: 0.875rem;
+            font-weight: 800;
             color: var(--accent-coral);
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 0.5rem;
+            display: block;
         }
-        details[open] summary:after {
-            content: '-';
-        }
-        .details-content {
-            padding: 0 1.5rem 1.5rem;
+        .syllabus-card p {
+            margin-bottom: 0;
+            font-size: 1rem;
             color: #555;
         }
+        .syllabus-card.teal .week-num { color: var(--accent-teal); }
+        .syllabus-card.teal { border-color: var(--accent-teal); }
+        .syllabus-card.mustard .week-num { color: var(--accent-mustard); }
+        .syllabus-card.mustard { border-color: var(--accent-mustard); }
+        .syllabus-card.purple .week-num { color: var(--accent-purple); }
+        .syllabus-card.purple { border-color: var(--accent-purple); }
 
         /* --- TIKTOK STRIP --- */
         .tiktok-strip {
@@ -331,7 +341,7 @@
 
     <header class="hero">
         <div class="hero-content">
-            <span class="kicker">Welcome to the Laboratory</span>
+            <span class="kicker">The Character Lab</span>
             <h1>Build unforgettable characters.<br>Not just performances.</h1>
             <p>A 10-week signature creative incubator for young actors ready to stretch their imagination, dive into emotional depth, and make bold storytelling choices.</p>
             <div class="tag">✨ Early Bird Enrollment Now Open</div>
@@ -450,28 +460,62 @@
     </section>
 
     <section class="syllabus">
-        <h2 style="text-align: center; margin-bottom: 2rem;">The 10-Week Evolution</h2>
-        
-        <details>
-            <summary>Week 1 — Character DNA</summary>
-            <div class="details-content">Extracting clues from the text to build the foundational identity of your character.</div>
-        </details>
-        <details>
-            <summary>Week 2 — Imagination Expansion</summary>
-            <div class="details-content">Breaking out of the box and leaving safe choices behind.</div>
-        </details>
-        <details>
-            <summary>Week 3 — Emotional Layers</summary>
-            <div class="details-content">Playing the subtext, not just the text. Understanding secondary emotions.</div>
-        </details>
-        <details>
-            <summary>Week 4 — Physical Character Work</summary>
-            <div class="details-content">The body language of a stranger. Changing your center of gravity.</div>
-        </details>
-        <details>
-            <summary>Week 5 — Vocal Rhythm + Texture</summary>
-            <div class="details-content">Finding the character's unique voice, pacing, and breath.</div>
-        </details>
+        <div class="container">
+            <h2 style="text-align: center; margin-bottom: 2rem;">The 10-Week Evolution</h2>
+            
+            <div class="syllabus-grid">
+                <div class="syllabus-card">
+                    <span class="week-num">Week 1</span>
+                    <h3>Character DNA</h3>
+                    <p>Extracting clues from the text to build the foundational identity of your character.</p>
+                </div>
+                <div class="syllabus-card teal">
+                    <span class="week-num">Week 2</span>
+                    <h3>Imagination Expansion</h3>
+                    <p>Breaking out of the box and leaving safe choices behind.</p>
+                </div>
+                <div class="syllabus-card mustard">
+                    <span class="week-num">Week 3</span>
+                    <h3>Emotional Layers</h3>
+                    <p>Playing the subtext, not just the text. Understanding secondary emotions.</p>
+                </div>
+                <div class="syllabus-card purple">
+                    <span class="week-num">Week 4</span>
+                    <h3>Physical Character Work</h3>
+                    <p>The body language of a stranger. Changing your center of gravity.</p>
+                </div>
+                <div class="syllabus-card">
+                    <span class="week-num">Week 5</span>
+                    <h3>Vocal Rhythm + Texture</h3>
+                    <p>Finding the character's unique voice, pacing, and breath.</p>
+                </div>
+                <div class="syllabus-card teal">
+                    <span class="week-num">Week 6</span>
+                    <h3>The Unspoken Story</h3>
+                    <p>Mastering silence and subtext. What happens when the character isn't speaking.</p>
+                </div>
+                <div class="syllabus-card mustard">
+                    <span class="week-num">Week 7</span>
+                    <h3>Bold Risk-Taking</h3>
+                    <p>Finding the unconventional choice that no one else in the room will make.</p>
+                </div>
+                <div class="syllabus-card purple">
+                    <span class="week-num">Week 8</span>
+                    <h3>High-Stakes Scenarios</h3>
+                    <p>Raising the emotional temperature and fully committing to the character's desires.</p>
+                </div>
+                <div class="syllabus-card">
+                    <span class="week-num">Week 9</span>
+                    <h3>Spontaneity & Instincts</h3>
+                    <p>Trusting your gut and reacting genuinely within the given circumstances.</p>
+                </div>
+                <div class="syllabus-card teal">
+                    <span class="week-num">Week 10</span>
+                    <h3>Integration & Performance</h3>
+                    <p>Bringing all the elements together for a magnetic, unforgettable performance.</p>
+                </div>
+            </div>
+        </div>
     </section>
 
     <section class="tiktok-strip">
