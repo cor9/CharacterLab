@@ -102,10 +102,10 @@
         .kicker {
             color: var(--accent-mustard);
             font-weight: 800;
-            letter-spacing: 2px;
+            letter-spacing: 4px;
             text-transform: uppercase;
-            font-size: 0.875rem;
-            margin-bottom: 1rem;
+            font-size: 2rem;
+            margin-bottom: 1.5rem;
             display: block;
         }
         .hero h1 {
@@ -320,6 +320,54 @@
             font-family: var(--font-sans);
         }
 
+        /* --- FAQ --- */
+        .section-alt {
+            background-color: var(--dark-cinema);
+            color: var(--text-light);
+        }
+        .faq-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .faq-item {
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+        .faq-question {
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 1.5rem 0;
+            background: none;
+            border: none;
+            color: var(--text-light);
+            font-size: 1.25rem;
+            font-weight: 600;
+            font-family: var(--font-sans);
+            cursor: pointer;
+            text-align: left;
+        }
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+        }
+        .faq-answer p {
+            color: #ccc;
+            padding-bottom: 1.5rem;
+            font-size: 1rem;
+        }
+        .faq-item.active .faq-answer {
+            max-height: 500px;
+        }
+        .faq-item.active .faq-icon {
+            transform: rotate(45deg);
+        }
+        .faq-icon {
+            font-size: 1.5rem;
+            transition: transform 0.3s ease;
+        }
+
         /* --- CTA --- */
         .cta {
             background: var(--accent-coral);
@@ -374,16 +422,42 @@
         </div>
     </section>
 
-    <section class="video-section">
-        <div class="container" style="max-width: 800px;">
-            <h2 style="color: var(--dark-cinema); font-size: 2.5rem;">Why most young actors stay forgettable.<br>And how Character Lab changes that.</h2>
-            <p style="color: var(--dark-cinema); font-weight: 600;">"We stop worrying about being correct, and start focusing on being interesting."</p>
-            
-            <div class="video-wrapper">
-                <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" allow="autoplay; encrypted-media" allowfullscreen></iframe>
-            </div>
-        </div>
-    </section>
+<section class="video-section">
+  <div class="container" style="max-width: 800px; text-align:center;">
+    
+    <p style="
+      font-family: var(--font-serif);
+      font-size: clamp(2rem, 3.5vw, 3rem);
+      line-height: 1.2;
+      color: var(--dark-cinema);
+      font-weight: 600;
+      margin-bottom: 1.5rem;
+    ">
+      “This isn’t about getting it right.<br>
+      It’s about creating characters casting can’t forget.”
+    </p>
+
+    <div style="
+      width: 80px;
+      height: 4px;
+      background: var(--dark-cinema);
+      margin: 0 auto 1.5rem;
+      opacity: 0.6;
+    "></div>
+
+    <p style="
+      font-weight: 700;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      opacity: 0.7;
+      font-size: 0.85rem;
+      color: var(--dark-cinema);
+    ">
+      — Corey Ralston
+    </p>
+
+  </div>
+</section>
 
     <section class="visual-grid">
         <div class="container">
@@ -413,7 +487,7 @@
                 </div>
                 <div class="grid-item">
                     <h3>⚡ Bold Risk-Taking</h3>
-                    <p>Making the choice that no one else in the waiting room will make.</p>
+                    <p>Making the choice that no one else in their self tape will make.</p>
                 </div>
             </div>
         </div>
@@ -460,6 +534,25 @@
                     </div>
                 </div>
             </div>
+
+            <div style="margin-top: 3rem; background: rgba(255,255,255,0.05); padding: 3rem; border-radius: 16px; border: 2px dashed var(--accent-mustard);">
+                <h3 style="color: var(--accent-mustard); font-size: 1.5rem; text-transform: uppercase; letter-spacing: 1px;">🎁 Bonuses Included (No Extra Cost)</h3>
+                <p style="font-weight: 800; color: #fff; margin-bottom: 1.5rem;">$500+ VALUE INCLUDED</p>
+                <ul style="list-style: none; padding: 0; text-align: left; max-width: 600px; margin: 0 auto;">
+                    <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 10px;">
+                        <span style="color: var(--accent-mustard);">✓</span>
+                        <span>Unlimited Prep101 audition guides for 3 months</span>
+                    </li>
+                    <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 10px;">
+                        <span style="color: var(--accent-mustard);">✓</span>
+                        <span>Two private 30-minute audition strategy sessions</span>
+                    </li>
+                    <li style="margin-bottom: 1rem; display: flex; align-items: flex-start; gap: 10px;">
+                        <span style="color: var(--accent-mustard);">✓</span>
+                        <span>Two self-tape feedbacks (non-class work)</span>
+                    </li>
+                </ul>
+            </div>
         </div>
     </section>
 
@@ -476,7 +569,7 @@
                 <div class="syllabus-card teal">
                     <span class="week-num">Week 2</span>
                     <h3>Imagination Expansion</h3>
-                    <p>Breaking out of the box and leaving safe choices behind. <strong style="color:var(--dark-cinema); display:block; margin-top:0.5rem;">So your read is wildly different from the waiting room.</strong></p>
+                    <p>Breaking out of the box and leaving safe choices behind. <strong style="color:var(--dark-cinema); display:block; margin-top:0.5rem;">So your read is wildly different from other self tapes.</strong></p>
                 </div>
                 <div class="syllabus-card mustard">
                     <span class="week-num">Week 3</span>
@@ -486,7 +579,7 @@
                 <div class="syllabus-card purple">
                     <span class="week-num">Week 4</span>
                     <h3>Physical Character Work</h3>
-                    <p>The body language of a stranger. Changing your center of gravity. <strong style="color:var(--dark-cinema); display:block; margin-top:0.5rem;">So casting immediately sees the character physically in the room.</strong></p>
+                    <p>The body language of a stranger. Changing your center of gravity. <strong style="color:var(--dark-cinema); display:block; margin-top:0.5rem;">So casting immediately sees the character physically in your self tape.</strong></p>
                 </div>
                 <div class="syllabus-card">
                     <span class="week-num">Week 5</span>
@@ -501,7 +594,7 @@
                 <div class="syllabus-card mustard">
                     <span class="week-num">Week 7</span>
                     <h3>Bold Risk-Taking</h3>
-                    <p>Finding the unconventional choice that no one else in the room will make. <strong style="color:var(--dark-cinema); display:block; margin-top:0.5rem;">So you firmly grab and hold the casting director's attention.</strong></p>
+                    <p>Finding the unconventional choice that no one else in their self tape will make. <strong style="color:var(--dark-cinema); display:block; margin-top:0.5rem;">So you firmly grab and hold the casting director's attention.</strong></p>
                 </div>
                 <div class="syllabus-card purple">
                     <span class="week-num">Week 8</span>
@@ -516,7 +609,7 @@
                 <div class="syllabus-card teal">
                     <span class="week-num">Week 10</span>
                     <h3>Integration & Performance</h3>
-                    <p>Bringing all the elements together for a magnetic, unforgettable performance. <strong style="color:var(--dark-cinema); display:block; margin-top:0.5rem;">So you walk out of your auditions knowing you dominated the room.</strong></p>
+                    <p>Bringing all the elements together for a magnetic, unforgettable performance. <strong style="color:var(--dark-cinema); display:block; margin-top:0.5rem;">So you finish your auditions knowing you submitted an undeniable self tape.</strong></p>
                 </div>
             </div>
         </div>
@@ -542,6 +635,154 @@
             </div>
         </div>
     </section>
+
+    <section class="about" style="background-color: var(--warm-neutral); color: var(--dark-cinema); padding: 5rem 2rem;">
+        <div class="container" style="display: flex; flex-wrap: wrap; gap: 4rem; align-items: center;">
+            <div style="flex: 1; min-width: 300px;">
+                <img src="coreyheadshot.jpg" alt="Corey Ralston" style="width: 100%; border-radius: 16px; box-shadow: 0 20px 40px rgba(0,0,0,0.1);">
+            </div>
+            <div style="flex: 2; min-width: 300px;">
+                <h2 style="font-size: 3rem; margin-bottom: 0.5rem;">About Corey Ralston</h2>
+                <p style="font-weight: 800; color: var(--accent-coral); text-transform: uppercase; letter-spacing: 1px; margin-bottom: 2rem;">Acting coach, talent manager, advocate for young performers</p>
+                <p>Corey Ralston has spent over two decades guiding young actors in the TV & Film industry. Corey, himself, was a child actor since the age of seven in L.A.</p>
+                <p>He then went on to pursue talent management in 2017, where he currently represents kids and young adults at Bohemia Group. Corey's mission is to help as many young actors achieve success as he possibly can.</p>
+                <p>He founded the resource community Child Actor 101 for parents of youth actors, moderating discussions with a team of Industry Professionals, giving out frank free advice.</p>
+                <p>His coaching blends professional insight from talent management with practical, kid-friendly techniques that help actors grow quickly and authentically.</p>
+                <p>Parents and casting directors alike recognize Corey's coaching for its mix of strategic challenge and safe creative space. Breakthroughs aren't rare—they're expected. Many students have moved from uncertainty to callbacks, bookings, and real confidence under Corey's guidance.</p>
+                <div style="background: white; padding: 2rem; border-radius: 12px; border-left: 4px solid var(--accent-teal); margin-top: 2rem; box-shadow: 0 10px 30px rgba(0,0,0,0.05);">
+                    <p style="font-style: italic; font-weight: 600; margin-bottom: 1rem;">"I truly believe that your coaching has helped Aiden take his acting skills to a much higher level. Not only have his callbacks increased, but he booked a role in a huge Studio film."</p>
+                    <p style="margin-bottom: 0; font-size: 0.875rem; font-weight: 800;">— Parent Joanna Torres</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECTION J: FAQ BLOCK -->
+    <section class="section section-alt" id="faq" style="padding: 5rem 2rem;">
+      <div class="container" style="text-align: center;">
+        <h2 style="margin-bottom: 3rem;">Frequently Asked Questions</h2>
+        <div class="faq-container">
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Who is this class for?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                This program is designed for young actors ages 8–17 who want to
+                improve their auditions by making strong characters that stand out and begin booking consistently.
+                It's ideal for actors who are serious about pursuing on-camera
+                work and want creative, professional training.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Do beginners qualify?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Yes—beginners are welcome if they are committed and serious about on-camera auditions. This program moves quickly and is designed to build strong fundamentals while also challenging experienced actors with higher-level audition strategy, choices, and self-tape standards.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>What if my child misses a class?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                While we encourage full attendance, we understand that conflicts
+                arise. Please contact us as soon as possible if your child needs
+                to miss a class. We'll work with you to ensure they don't fall
+                behind.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Are classes recorded?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Classes are recorded for students who miss a session. Recordings
+                are available for a limited time and are for enrolled students
+                only.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>Can I switch between Tuesday and Wednesday?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Switching between groups is subject to availability and must be
+                arranged in advance. Please contact to discuss scheduling
+                options.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>What is the refund/cancellation policy?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Refunds are available up to 7 days before the program start date
+                (May 13, 2026). After that, no refunds will be issued.
+                Payment plans are binding once the program begins.
+              </p>
+            </div>
+          </div>
+
+          <div class="faq-item">
+            <button class="faq-question" aria-expanded="false">
+              <span>How many students per class?</span>
+              <span class="faq-icon">+</span>
+            </button>
+            <div class="faq-answer">
+              <p>
+                Maximum 8 students per class (16 total for the program) to
+                ensure personalized attention and quality instruction for each
+                participant.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <script>
+        document.querySelectorAll('.faq-question').forEach(button => {
+            button.addEventListener('click', () => {
+                const faqItem = button.parentElement;
+                
+                // Close currently open items (optional, remove if you want multiple open)
+                document.querySelectorAll('.faq-item.active').forEach(item => {
+                    if (item !== faqItem) {
+                        item.classList.remove('active');
+                        item.querySelector('.faq-question').setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                faqItem.classList.toggle('active');
+                
+                const isExpanded = button.getAttribute('aria-expanded') === 'true';
+                button.setAttribute('aria-expanded', !isExpanded);
+            });
+        });
+    </script>
 
     <section class="cta">
         <div class="container">
