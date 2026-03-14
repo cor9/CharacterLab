@@ -129,12 +129,16 @@
             .hero-poster { flex: 0 0 auto; width: 70%; max-width: 320px; }
         }
         .kicker {
-            color: var(--accent-mustard);
-            font-weight: 800;
-            letter-spacing: 4px;
-            text-transform: uppercase;
-            font-size: 2rem;
-            margin-bottom: 1.5rem;
+            font-family: var(--font-serif);
+            font-style: italic;
+            font-weight: 600;
+            font-size: clamp(2rem, 3.5vw, 3rem);
+            letter-spacing: 2px;
+            color: #ffffff;
+            text-shadow:
+                0 0 20px rgba(255, 107, 107, 0.7),
+                0 0 60px rgba(255, 107, 107, 0.3);
+            margin-bottom: 1rem;
             display: block;
         }
         .hero h1 {
